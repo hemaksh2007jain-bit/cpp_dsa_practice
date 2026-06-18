@@ -4,34 +4,24 @@
 using namespace std;
 
 int main() {
-    int array[]={4,2,0,6,3,2,5};
-    int n=sizeof(array)/sizeof(int);
-    int right[n];
-    int left[n];
-    right[0]=0;
-    left[n-1]=0;
-    int sum=0;
-    for(int i=0;i<n; i++){
-        if(right[i]<array[i]){
-            right[1+i]=array[i];
+    int num;
+    cout <<"enter an integer: ";
+    cin>>num;
+    bool isprime=true;
+    for(int i=2; i<num; i++){
+        if(num%i==0){
+            isprime=false;
+            break;
         }else{
-            right[i+1]=right[i];
+            continue;
         }
     }
-
-    for(int j=n-1; j>=0; j--){
-        if(left[j]<array[j]){
-            left[j-1]=array[j];
-        }
-        else{
-            left[j-1]=left[j];
-        }
+    if(isprime==true){
+        cout<<"prime";
+    }else{
+        cout<<"not prime";
+    } 
+    if(num==2){
+        cout<<"prime";
     }
-    for(int i=0; i<n; i++){
-        int water=min(left[i],right[i])-array[i];
-        if(water>0){
-            sum=sum+water;
-        }
-    }
-    cout<<sum<<endl;
 }
