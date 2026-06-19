@@ -4,24 +4,16 @@
 using namespace std;
 
 int main() {
-    int num;
-    cout <<"enter an integer: ";
-    cin>>num;
-    bool isprime=true;
-    for(int i=2; i<num; i++){
-        if(num%i==0){
-            isprime=false;
-            break;
-        }else{
-            continue;
-        }
+   for(int i=0; i<5; i++){
+    for(int j=4-i; j>=0; j-- ){
+        cout<<" ";
     }
-    if(isprime==true){
-        cout<<"prime";
-    }else{
-        cout<<"not prime";
-    } 
-    if(num==2){
-        cout<<"prime";
+    for(int k=i+1; k>=1; k--){
+        cout<<k;
     }
+    for(int l=i+2; l<=5; l++){
+        cout<<l;
+    }
+    cout<<endl;
+   }
 }
