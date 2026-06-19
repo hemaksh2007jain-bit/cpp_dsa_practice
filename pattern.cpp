@@ -4,16 +4,12 @@
 using namespace std;
 
 int main() {
-   for(int i=0; i<5; i++){
-    for(int j=4-i; j>=0; j-- ){
-        cout<<" ";
-    }
-    for(int k=i+1; k>=1; k--){
-        cout<<k;
-    }
-    for(int l=i+2; l<=5; l++){
-        cout<<l;
+  int a=1;
+  for(int i=1; i<6; i++){
+    for(int j=0; j<i; j++){
+        cout<<a<<" ";
+        a++;
     }
     cout<<endl;
-   }
+  }
 }
