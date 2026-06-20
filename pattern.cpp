@@ -3,23 +3,24 @@
 #include <algorithm>
 using namespace std;
 
+int binomial(int n){
+  int num=1;
+     for(int i=1; i<=n; i++){
+     num=num*i;
+ }
+    return num;
+}
+
+int coeff(int n, int r){
+  int val1=binomial(n);
+  int val2=binomial(r);
+  int val3=binomial(n-r);
+  int ans=val1/(val2*val3);
+  return ans;
+}
+
 int main() {
-  int a;
-  cout<<"enter a number: ";
-  cin>>a;
-  int original = a;
-  int reversed = 0;
-
-  while (a > 0) {
-    int r = a % 10;
-    reversed = reversed * 10 + r;
-    a = a / 10;
-  }
-
-  if (reversed == original) {
-    cout<<"palindrome";
-  }
-  else {
-    cout<<"not palindrome";
-  }
+   int result = coeff(5, 2);
+   cout << "The binomial coefficient C(5, 2) is: " << result << endl;
+   return 0;
 }
