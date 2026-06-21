@@ -4,19 +4,19 @@
 using namespace std;
 
 int binary(int n){
-   int power=1;
    int sum=0;
+   int power=1;
    while(n>0){
-      int r=n%10;
-      sum=sum+r*power;
-      power=power*2;
-      n=n/10;
+      int rem=n%2;
+      sum=sum+rem*power;
+      power=power*10;
+      n=n/2;
    }
    return sum;
 }
 
 int main(){
-  int ans=binary(10010);
-  cout<<ans;
-   return 0;
+  int ans=binary(18);
+  cout << ans;
+  return 0;
 }
