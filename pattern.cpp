@@ -3,24 +3,27 @@
 #include <algorithm>
 using namespace std;
 
-int binomial(int n){
-  int num=1;
-     for(int i=1; i<=n; i++){
-     num=num*i;
- }
-    return num;
+bool isPrime(int n){
+   if(n==1){
+      return false;
+   }
+   for(int i=2; i<=n/2; i++){
+      if(n%i==0){
+         return false;
+      }
+   }
+   return true;
 }
 
-int coeff(int n, int r){
-  int val1=binomial(n);
-  int val2=binomial(r);
-  int val3=binomial(n-r);
-  int ans=val1/(val2*val3);
-  return ans;
+int print(int n){
+   for(int i=2; i<=n; i++){
+      if(isPrime(i)==true){
+         cout<<i<<" ";
+      }
+   }
 }
 
-int main() {
-   int result = coeff(5, 2);
-   cout << "The binomial coefficient C(5, 2) is: " << result << endl;
+int main(){
+  print(100);
    return 0;
 }
