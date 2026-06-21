@@ -3,27 +3,20 @@
 #include <algorithm>
 using namespace std;
 
-bool isPrime(int n){
-   if(n==1){
-      return false;
+int binary(int n){
+   int power=1;
+   int sum=0;
+   while(n>0){
+      int r=n%10;
+      sum=sum+r*power;
+      power=power*2;
+      n=n/10;
    }
-   for(int i=2; i<=n/2; i++){
-      if(n%i==0){
-         return false;
-      }
-   }
-   return true;
-}
-
-int print(int n){
-   for(int i=2; i<=n; i++){
-      if(isPrime(i)==true){
-         cout<<i<<" ";
-      }
-   }
+   return sum;
 }
 
 int main(){
-  print(100);
+  int ans=binary(10010);
+  cout<<ans;
    return 0;
 }
