@@ -1,22 +1,27 @@
-#include<iostream>
-#include <climits> 
-#include <algorithm>
+#include <iostream>
 using namespace std;
 
-int binary(int n){
-   int sum=0;
-   int power=1;
-   while(n>0){
-      int rem=n%2;
-      sum=sum+rem*power;
-      power=power*10;
-      n=n/2;
+int search(int *array, int target, int n) {
+   int start = 0;
+   int end = n - 1;
+
+   while( start<=end ) {
+      int mid =  (end + start) / 2;
+      if (target == array[mid]) {
+         return mid;
+      } else if (target > array[mid]) {
+         start = mid + 1;
+      } else {
+         end = mid - 1;
+      }
    }
-   return sum;
+
+   return -1;
 }
 
-int main(){
-  int ans=binary(18);
-  cout << ans;
-  return 0;
+int main() {
+   int array[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+   int n = sizeof(array) / sizeof(int);
+   cout << search(array, 1, n);
+   return 0;
 }
