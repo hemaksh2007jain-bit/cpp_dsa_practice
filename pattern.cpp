@@ -3,26 +3,21 @@
 #include <algorithm> 
 using namespace std;
 
-
-int main() {
-   int array[]={7,1,5,3,6,4};
-   int n=sizeof(array)/sizeof(int);
-   int buy[n];
-   buy[0]=INT_MAX;
+bool isRepeat(int *array, int n){
+   sort(array,array+6);
    for(int i=0; i<n; i++){
-     if(buy[i]>array[i]){
-      buy[i+1]=array[i];
-     }else{
-      buy[i+1]=buy[i];
-     }
-   }
-   int profit=array[0]-buy[0];
-   for(int i=1; i<n; i++){
-      int mini=array[i]-buy[i];
-      if(mini>0){
-          profit=max(profit,mini);
+      if(array[i]==array[i+1]){
+         return false;
+         break;
       }
    }
-   cout<<profit;
+   return true;
+}
+
+int main() {
+   int array[]={7,1,5,3,1,6,4};
+   int n=sizeof(array)/sizeof(int);
+   int ans=isRepeat(array,n);
+   cout<<ans;
    return 0;
 }
