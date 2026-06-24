@@ -3,21 +3,21 @@
 #include <algorithm> 
 using namespace std;
 
-bool isRepeat(int *array, int n){
-   sort(array,array+6);
-   for(int i=0; i<n; i++){
-      if(array[i]==array[i+1]){
-         return false;
-         break;
-      }
-   }
-   return true;
-}
+
 
 int main() {
-   int array[]={7,1,5,3,1,6,4};
+   int array[]={5,4,1,3,2};
    int n=sizeof(array)/sizeof(int);
-   int ans=isRepeat(array,n);
-   cout<<ans;
+   for(int i=0; i<n; i++){
+      for(int j=0; j<n-i-1; j++){
+         if(array[j]>array[j+1]){
+            swap(array[j],array[j+1]);
+         }
+      }
+   }
+
+   for(int i=0; i<n; i++){
+      cout<<array[i];
+   }
    return 0;
 }
