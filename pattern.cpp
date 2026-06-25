@@ -6,22 +6,34 @@ using namespace std;
 
 
 int main() {
-   int array[]={1,4,1,0,3,2,4,0,3,7};
-   int n=sizeof(array)/sizeof(int);
-   int maxi=array[0];
-   for(int i=1; i<n; i++){
-      maxi=max(maxi,array[i]);
-   }
-   int idx=maxi+1;
-   int freq[idx]={0};
-   for(int i=0; i<n; i++){
-      freq[array[i]]++;
-   }
-   for(int i=0; i<=maxi; i++){
-      while(freq[i]>0){
-         cout<<i<<" ";
-         freq[i]--;
+   int matrix[4][4]={{1,2,3,4},
+                     {5,6,7,8},
+                     {9,10,11,12},
+                     {13,14,15,16}};
+                     
+   int n=4;
+   int m=4;
+   int strow=0;
+   int stcol=0;
+   int endrow=n;
+   int endcol=m;
+   while(strow<endrow && stcol<endcol){
+      for(int j=stcol; j<endcol; j++){
+         cout<<matrix[strow][j]<<" ";
       }
+      for(int j=strow+1; j<endrow; j++){
+         cout<<matrix[j][endcol-1]<<" ";
+      }
+      for(int j=endcol-2; j>=stcol; j--){
+         cout<<matrix[endrow-1][j]<<" ";
+      }
+      for(int j=endrow-2; j>strow; j--){
+         cout<<matrix[j][stcol]<<" ";
+      }
+      strow++;
+      endrow--;
+      stcol++;
+      endcol--;
    }
    return 0;
 }
